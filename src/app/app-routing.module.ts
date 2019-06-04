@@ -2,22 +2,22 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './presentation/pages/home/home.component';
 import { LoginComponent } from './presentation/pages/login/login.component';
-import { ProtectedComponent } from './presentation/pages/protected/protected.component';
 import { AuthGuard } from './data/auth/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     component: LoginComponent
   },
   {
-    path: 'protected',
-    component: ProtectedComponent,
+    path: 'home',
+    component: HomeComponent,
     canActivate: [AuthGuard]
   },
   { path: '**', redirectTo: '' }

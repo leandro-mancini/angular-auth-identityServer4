@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   loginRedirect() {
     this.oidcFacade.signinRedirect({
       data: {
-        redirect_url: 'http://localhost:4200/protected'
+        redirect_url: 'http://localhost:4200/#/home'
       }
     });
   }
