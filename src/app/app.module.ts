@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PresentationModule } from './presentation/presentation.module';
 import { DataModule } from './data/data.module';
+import { HomeModule } from './presentation/pages/home/home.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DataModule } from './data/data.module';
   ],
   imports: [
     BrowserModule,
+    HomeModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),

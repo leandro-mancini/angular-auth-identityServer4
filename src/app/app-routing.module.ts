@@ -5,21 +5,21 @@ import { LoginComponent } from './presentation/pages/login/login.component';
 import { AuthGuard } from './data/auth/auth.guard';
 
 const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
-  },
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   component: HomeComponent,
+  //   canActivate: [AuthGuard]
+  // },
   {
     path: 'login',
     component: LoginComponent
   },
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'home',
+  //   component: HomeComponent,
+  //   canActivate: [AuthGuard]
+  // },
   { path: '**', redirectTo: '' }
 ];
 
