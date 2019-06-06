@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { OidcFacade } from 'ng-oidc-client';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, catchError } from 'rxjs/operators';
+
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +26,13 @@ export class AuthInterceptorService implements HttpInterceptor {
             }
           });
         }
-        return next.handle(req);
+
+        return next.handle(req).pipe(catchError(error => this.errorHandler(error)));
       })
     );
+  }
+
+  private errorHandler(response: HttpEvent<any>): Observable<HttpEvent<any>> {
+    throw response;
   }
 }

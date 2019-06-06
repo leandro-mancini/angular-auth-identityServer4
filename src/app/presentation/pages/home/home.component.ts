@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { User } from 'oidc-client';
 import { HttpClient } from '@angular/common/http';
 import { OidcFacade } from 'ng-oidc-client';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,14 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  obterPessoa() {
+    console.log('obterPessoaobterPessoa');
+
+    this.http.get(environment.serverUrl + '/api/Pessoa').subscribe(resp => {
+      console.log(resp);
+    });
   }
 
   checkUserInfo() {
